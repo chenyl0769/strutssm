@@ -15,6 +15,11 @@ import java.util.List;
 public class Coseraction {
     @Autowired
     private Coserservice coserservice;
+
+    /**
+     * 查询所有
+     * @return
+     */
     public String findall(){
         List<Coser> cosers= coserservice.findall();
         HttpServletRequest request= ServletActionContext.getRequest();
@@ -22,10 +27,15 @@ public class Coseraction {
         return "sc";
     }
 
+    /**
+     * 根据ID查询
+     * @return
+     */
     public String findone(){
         Coser coser=coserservice.findone(3);
         System.out.println(coser);
         System.out.println("find-lazy");
+        //懒加载测试
         System.out.println(coser.getUser());
         return "sc";
     }

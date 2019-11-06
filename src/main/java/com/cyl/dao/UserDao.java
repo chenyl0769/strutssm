@@ -12,7 +12,7 @@ import java.util.List;
  * 注解方式的mybatis
  */
 public interface UserDao {
-    //动态sql方式查询
+    //动态sql方式
     @InsertProvider(type = SqlFactory.class,method ="insertUser")
     public void insertuser(@Param("u") User user);
     //通过角色id查找

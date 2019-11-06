@@ -21,4 +21,6 @@ public interface Userservice {
     void addone(String name, String pwd);
 
     void insertuser(String name, String pwd);
+
+    void qmtest();
 }

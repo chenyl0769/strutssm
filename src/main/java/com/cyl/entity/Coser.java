@@ -3,10 +3,15 @@ package com.cyl.entity;
 import java.io.Serializable;
 import java.util.Set;
 
+/**
+ * Coser实体类
+ */
 public class Coser implements Serializable {
 
     private Integer id;
+
     private Integer uid;
+
     private String cname;
     private String cstr;
 

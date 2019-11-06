@@ -3,6 +3,7 @@ package com.cyl.service;
 import com.cyl.dao.UserDao;
 import com.cyl.entity.User;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -14,7 +15,9 @@ import java.util.List;
 
 
 public class UserserviceImp implements Userservice {
-
+    @Autowired
+    private RabbitTemplate amqpTemplate;
+    private UserDao userDao;
     public UserDao getUserDao() {
         return userDao;
     }
@@ -22,9 +25,6 @@ public class UserserviceImp implements Userservice {
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
     }
-
-    private UserDao userDao;
-
     @Override
     public User finduserbyid(Integer id) {
         return userDao.finduserbyid(id);
@@ -61,6 +61,13 @@ public class UserserviceImp implements Userservice {
         user.setName(name);
         user.setPwd(pwd);
         userDao.insertuser(user);
+    }
+
+    @Override
+    public void qmtest() {
+
+        amqpTemplate.convertAndSend("topexchange","ok.jj","aaa");
+        System.out.println("发送了");
     }
 
 

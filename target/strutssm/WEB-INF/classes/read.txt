@@ -1,0 +1,2 @@
+框架使用struts2+spring+mybatis
+分别用xml方式和注解方式进行级联查询

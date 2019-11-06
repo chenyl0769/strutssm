@@ -5,7 +5,15 @@ import org.apache.ibatis.jdbc.SQL;
 
 import java.util.Map;
 
+/**
+ * InsertProvider使用的sql工厂
+ */
 public class SqlFactory {
+    /**
+     * 接收User拼接insert语句
+     * @param usermap
+     * @return
+     */
     public String insertUser(Map<String,Object> usermap){
 
         User user = (User) usermap.get("u");

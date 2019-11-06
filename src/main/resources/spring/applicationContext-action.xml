@@ -15,6 +15,7 @@
          http://www.springframework.org/schema/mvc/spring-mvc.xsd
          http://www.springframework.org/schema/tx
          http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <!--actionbean配置-->
     <bean name="useraction" class="com.cyl.actions.Useraction"></bean>
     <bean name="coseraction" class="com.cyl.actions.Coseraction"></bean>
 
